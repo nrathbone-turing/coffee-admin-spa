@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { ProductProvider, useProductContext } from '../context/ProductContext';
+import { vi } from 'vitest';
 
+// global mock coffee product data for testing
 const mockData = [
   {
     id: 1,
@@ -18,28 +20,36 @@ const mockData = [
   },
 ];
 
+// keeping the test component to access the context in the first place
 function TestComponent() {
   const { products } = useProductContext();
   return <div data-testid="product-count">{products.length} products loaded</div>;
 }
 
 describe('ProductContext', () => {
+
   beforeEach(() => {
-    localStorage.setItem('products', JSON.stringify(mockData));
+    // mock the fetch to return mockData when ProductProvider runs
+    global.fetch = vi.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(mockData),
+      })
+    );
   });
 
   afterEach(() => {
     localStorage.clear();
+    vi.restoreAllMocks(); // Clean up mocks after each test
   });
 
-  it('provides coffee data from localStorage', () => {
+  it('provides coffee data from fetch', async () => {
     render(
       <ProductProvider>
         <TestComponent />
       </ProductProvider>
     );
 
-    const countEl = screen.getByTestId('product-count');
+    const countEl = await screen.findByTestId('product-count');
     expect(countEl).toHaveTextContent('2 products loaded');
   });
 });
