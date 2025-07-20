@@ -2,7 +2,7 @@
 
 This is a React-based SPA for managing coffee products in a simulated e-commerce store. Built as a summative project to demonstrate:
 
-- State management with React Hooks (standard and custom)
+- State management with React Hooks (including custom hook `useProductContext`)
 - Client-side routing with `react-router-dom`
 - Full CRUD functionality using `json-server` as a RESTful mock API
 - Component-based architecture with reusable forms and cards
@@ -13,22 +13,25 @@ This is a React-based SPA for managing coffee products in a simulated e-commerce
 - View coffee inventory with editable product cards
 - Add new coffee products via an admin form
 - Edit product prices inline (patch request)
+- Delete coffee products with a single click
 - Real-time UI updates without refresh
 - Responsive, accessible layout
-- Unit test coverage for critical components
+- Unit test coverage for components, context, and routing
 
 ## Component Tree
 
 ```css
 App
-├── Header
-├── Routes
-│ ├── Home
-│ ├── Shop
-│ │ └── ProductCard (× N)
-│ └── AdminPortal
-│ └── ProductForm
+├── Navbar
+├── Routes (react-router-dom)
+│   ├── Home
+│   │   └── "Shop Now" CTA
+│   ├── Shop
+│   │   └── ProductCard (× N)
+│   └── AdminPortal
+│       └── ProductForm
 └── ProductProvider (Context)
+    └── useProductContext (custom hook)
 ```
 
 ### Additional folders:
