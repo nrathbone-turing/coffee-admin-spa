@@ -5,8 +5,10 @@ describe('App', () => {
   it('renders navigation links', () => {
     render(<App />);
 
-    expect(screen.getByText(/Home/i)).toBeInTheDocument();
-    expect(screen.getByText(/Shop/i)).toBeInTheDocument();
-    expect(screen.getByText(/Admin Portal/i)).toBeInTheDocument();
+    const links = screen.getAllByRole('link');
+
+    expect(links.some(link => link.textContent === 'Home')).toBe(true);
+    expect(links.some(link => link.textContent === 'Shop')).toBe(true);
+    expect(links.some(link => link.textContent === 'Admin Portal')).toBe(true);
   });
 });
