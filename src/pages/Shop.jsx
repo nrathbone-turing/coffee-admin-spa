@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
+import useCoffeeProducts from '../hooks/useCoffeeProducts';
 
 function Shop() {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useCoffeeProducts();
 
     // Fetch the coffee data from the local json server when the component first mounts
     useEffect(() => {
