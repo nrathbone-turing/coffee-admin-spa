@@ -19,7 +19,10 @@ describe('ProductCard', () => {
   });
 
   it('allows price editing (if editable)', () => {
-    render(<ProductCard product={product} />);
+    render(<ProductCard product={product} onUpdate={() => {}} />);
+
+    // mock clicking the edit price button
+    fireEvent.click(screen.getByText(/Edit Price/i));
 
     const priceInput = screen.getByDisplayValue('10');
     fireEvent.change(priceInput, { target: { value: '12' } });
