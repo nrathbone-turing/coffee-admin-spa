@@ -1,4 +1,4 @@
-// Import necessary modules from React Router
+// Import necessary modules from React Router -- important for SPA to handle page transitions without full reloads
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // then import all the other shared components and pages
 import Header from './components/Header';
