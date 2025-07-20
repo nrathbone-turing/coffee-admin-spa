@@ -109,6 +109,15 @@ body {
   transform: scale(1.02);
 }
 
+.delete-button {
+  background-color: #b23a48;
+  margin-left: 0.5rem;
+}
+
+.delete-button:hover {
+  background-color: #921e2e;
+}
+
 /* ADMIN FORM */
 .admin-form-container {
   display: flex;

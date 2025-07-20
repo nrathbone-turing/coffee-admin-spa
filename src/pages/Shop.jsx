@@ -11,19 +11,24 @@ function Shop() {
         .then(setProducts); // Save the fetched products into a state
     }, []); // empty dependency array to start with
 
-    // This event handler is called when a product is updated (i.e., when price is edited)
+    // this event handler is called when a product is updated (i.e., when price is edited)
     function handleUpdate(updatedProduct) {
         const updatedList = products.map((product) =>
         product.id === updatedProduct.id ? updatedProduct : product
         );
         setProducts(updatedList);
     }
-
+    // this event handler is called when deleting a product card from the shop page/route
+    function handleDelete(idToDelete) {
+        const updatedList = products.filter(p => p.id !== idToDelete);
+        setProducts(updatedList);
+    }
+    
     return (
         <div className="shop-container">
             <div className="shop-grid">
             {products.map((product) => (
-                <ProductCard key={product.id} product={product} onUpdate={handleUpdate} />
+                <ProductCard key={product.id} product={product} onUpdate={handleUpdate} onDelete={handleDelete}/>
             ))}
             </div>
         </div>
