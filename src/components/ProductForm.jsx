@@ -47,7 +47,7 @@ function ProductForm() {
 
   // Event form with the input fields shown in the mock design document for AdminPortal
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: '400px', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+    <form onSubmit={handleSubmit} className="product-form">
       <label>
         Coffee Name
         <input name="name" value={formData.name} onChange={handleChange} />

@@ -3,31 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 // just a simple horizontal navigation bar for now based on mockups
 function Header() {
-  return (
-    <nav 
-        style={{ 
-            display: 'flex', 
-            gap: '2rem', 
-            padding: '1rem', 
-            backgroundColor: '#8B7E74',
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderBottom: '1px solid #444',
-            minHeight: '60px',
-        }}
-    >
-      {/* NavLink applies an "active" style when route matches via white underline in this case */}
-      <NavLink to="/" style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none', color: 'white' })}>
-        Home
-      </NavLink>
-      <NavLink to="/shop" style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none', color: 'white' })}>
-        Shop
-      </NavLink>
-      <NavLink to="/admin" style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none', color: 'white' })}>
-        Admin Portal
-      </NavLink>
-    </nav>
-  );
+    return (
+        <nav className="navbar">
+            {/* NavLink applies an "active" style when route matches via white underline in this case */}
+            <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
+            <NavLink to="/shop" className={({ isActive }) => isActive ? "active" : ""}>Shop</NavLink>
+            <NavLink to="/admin" className={({ isActive }) => isActive ? "active" : ""}>Admin Portal</NavLink>
+        </nav>
+    );
 }
 
 export default Header;

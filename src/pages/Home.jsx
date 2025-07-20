@@ -1,8 +1,11 @@
+import { NavLink } from 'react-router-dom';
+
 function Home() {
   return (
-    <div style={{ textAlign: 'center', paddingTop: '4rem', backgroundColor: '#8B5E3C', height: '100vh', color: 'white', width: '100%'}}>
-      <h1 style={{ fontSize: '3rem' }}>Coffee R Us</h1>
-      <p style={{ fontSize: '1.25rem' }}>The go to store for your coffee needs</p>
+    <div className="home">
+      <h1>Coffee R Us</h1>
+      <p>The go to store for your coffee needs</p>
+      <NavLink to="/shop" className="cta-button">Shop Now</NavLink>
     </div>
   );
 }

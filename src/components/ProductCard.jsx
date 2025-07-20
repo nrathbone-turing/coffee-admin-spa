@@ -26,7 +26,7 @@ function ProductCard({ product, onUpdate }) {
   }
 
   return (
-    <div style={{ background: '#eee', padding: '1rem', borderRadius: '8px' }}>
+    <div className="product-card">
       <h3>{product.name}</h3>
       <p>{product.description}</p>
       <p>Origin: {product.origin}</p>
