@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from '../App';
 
 describe('App', () => {
-  it('renders nav links', () => {
+  it('renders navigation links', () => {
     render(
       <BrowserRouter>
         <App />
