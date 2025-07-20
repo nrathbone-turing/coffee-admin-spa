@@ -9,7 +9,11 @@ function Header() {
             display: 'flex', 
             gap: '2rem', 
             padding: '1rem', 
-            backgroundColor: '#8B7E74' 
+            backgroundColor: '#8B7E74',
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderBottom: '1px solid #444',
+            minHeight: '60px',
         }}
     >
       {/* NavLink applies an "active" style when route matches via white underline in this case */}
