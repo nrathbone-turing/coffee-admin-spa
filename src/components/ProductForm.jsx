@@ -24,7 +24,7 @@ function ProductForm() {
     // Convert price to a number (float data type) before sending
     const newProduct = {
       ...formData,
-      price: parseFloat(formData.price),
+      price: parseFloat(formData.price) || 0,
     };
 
     fetch('http://localhost:3001/coffee', {
