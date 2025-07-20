@@ -1,12 +1,83 @@
-# React + Vite
+# Coffee R Us Admin Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React-based SPA for managing coffee products in a simulated e-commerce store. Built as a summative project to demonstrate:
 
-Currently, two official plugins are available:
+- State management with React Hooks (standard and custom)
+- Client-side routing with `react-router-dom`
+- Full CRUD functionality using `json-server` as a RESTful mock API
+- Component-based architecture with reusable forms and cards
+- Unit testing with Vitest and React Testing Library
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- View coffee inventory with editable product cards
+- Add new coffee products via an admin form
+- Edit product prices inline (patch request)
+- Real-time UI updates without refresh
+- Responsive, accessible layout
+- Unit test coverage for critical components
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Component Tree
+
+```css
+App
+├── Header
+├── Routes
+│ ├── Home
+│ ├── Shop
+│ │ └── ProductCard (× N)
+│ └── AdminPortal
+│ └── ProductForm
+└── ProductProvider (Context)
+```
+
+### Additional folders:
+- `context/` – holds the global state provider
+- `components/` – reusable UI parts
+- `pages/` – route-level views
+- `__tests__/` – unit tests
+
+## Installation & Setup
+
+1. **Clone the repo**:
+```bash
+git clone https://github.com/nrathbone-turing/coffee-admin-spa.git
+cd coffee-admin-spa
+```
+
+2. **Install dependencies**:
+```bash
+npm install
+```
+
+3. **Start the mock backend (json-server)**:
+```bash
+npx json-server --watch db.json --port 3001
+```
+
+4. **Run the app locally**:
+```bash
+npm run dev
+```
+
+## Running Tests
+
+```bash
+npx vitest
+```
+
+Tests are written with:
+
+- [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/)
+- [vitest](https://vitest.dev/) for fast unit testing
+
+## About This Repo
+
+### Author
+Nick Rathbone
+[GitHub Profile](https://github.com/nrathbone-turing)
+
+*Note: This project is part of the Flatiron React Module labs/assessments*
+
+### License
+MIT — feel free to use or remix!
