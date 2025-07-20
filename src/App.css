@@ -122,7 +122,10 @@ body {
 .admin-form-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding: 2rem;
+  text-align: center;
 }
 
 .admin-form-container h2 {
@@ -171,4 +174,11 @@ button {
 
 button:hover {
   background-color: #3a2b1c;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }

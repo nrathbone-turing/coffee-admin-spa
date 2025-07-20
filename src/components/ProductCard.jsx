@@ -36,24 +36,26 @@ function ProductCard({ product, onUpdate, onDelete }) {
 
   return (
     <div className="product-card">
-      <h3>{product.name}</h3>
-      <p>{product.description}</p>
-      <p>Origin: {product.origin}</p>
-      {/* Toggle option to go between editing and viewing the price */}
-      {editing ? (
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
+        <p>Origin: {product.origin}</p>
+        {/* Toggle option to go between editing and viewing the price */}
+        {editing ? (
+            <>
+            <input
+                type="number"
+                value={price}
+                onChange={handlePriceChange}
+            />
+            <button onClick={handleSave}>Save</button>
+            </>
+        ) : (
         <>
-          <input
-            type="number"
-            value={price}
-            onChange={handlePriceChange}
-          />
-          <button onClick={handleSave}>Save</button>
-        </>
-      ) : (
-        <>
-          <p>Price: ${product.price.toFixed(2)}</p>
-          <button onClick={() => setEditing(true)}>Edit Price</button>
-          <button onClick={handleDelete} className="delete-button">Delete</button>
+            <p>Price: ${product.price.toFixed(2)}</p>
+            <div className="button-group">
+                <button onClick={() => setEditing(true)}>Edit Price</button>
+                <button onClick={handleDelete} className="delete-button">Delete</button>
+            </div>
         </>
       )}
     </div>
